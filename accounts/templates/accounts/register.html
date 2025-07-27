@@ -1,0 +1,80 @@
+{% extends 'accounts/base.html' %}
+
+{% block title %}Register{% endblock %}
+
+{% block content %}
+<section class="vh-100 bg-image"
+  style="background-image: url('https://mdbcdn.b-cdn.net/img/Photos/new-templates/search-box/img4.webp');">
+  <div class="mask d-flex align-items-center h-100" style="background-color: rgba(0, 0, 0, 0.6);">
+    <div class="container h-100">
+      <div class="row d-flex justify-content-center align-items-center h-100">
+        <div class="col-12 col-md-5 col-lg-6 col-xl-6">
+          <div class="card shadow" style="border-radius: 15px;">
+            <div class="card-body p-5">
+              <h2 class="text-uppercase text-center mb-5">Create an account</h2>
+
+              <form action="{% url 'register' %}" method="post">
+                {% csrf_token %}
+
+                <div class="form-outline mb-2">
+                  <label class="form-label" for="name">Your Name</label>
+                  <input type="text" id="name" name="name" class="form-control form-control-lg" required>
+                </div>
+
+                <div class="form-outline mb-2">
+                  <label class="form-label" for="email">Your Email</label>
+                  <input type="email" id="email" name="email" class="form-control form-control-lg" required>
+                </div>
+
+                <div class="form-outline mb-2">
+                  <label class="form-label" for="password1">Password</label>
+                  <input type="password" id="password1" name="password1" class="form-control form-control-lg" required>
+                </div>
+
+                <div class="form-outline mb-2">
+                  <label class="form-label" for="password2">Repeat your password</label>
+                  <input type="password" id="password2" name="password2" class="form-control form-control-lg" required>
+                </div>
+
+                <!-- Terms of Service Checkbox + Modal Trigger -->
+                <div class="form-check d-flex justify-content-center mb-2">
+                  <input class="form-check-input me-2" type="checkbox" id="terms" required>
+                  <label class="form-check-label" for="terms">
+                    I agree to the 
+                    <a href="#" data-bs-toggle="modal" data-bs-target="#termsModal" class="text-decoration-underline">
+                      terms of service
+                    </a>
+                  </label>
+                </div>
+
+                <div class="d-flex justify-content-center">
+                  <button type="submit" class="btn btn-success btn-block btn-lg">Register</button>
+                </div>
+
+                <p class="text-center text-muted mt-2 mb-0">Already have an account?
+                  <a href="{% url 'login' %}" class="fw-bold text-decoration-underline">Login here</a>
+                </p>
+              </form>
+
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="modal fade" id="termsModal" tabindex="-1" aria-hidden="true">
+  <div class="modal-dialog modal-lg modal-dialog-scrollable">
+    <div class="modal-content bg-dark text-white">
+      <div class="modal-header">
+        <h5 class="modal-title">Terms and Conditions</h5>
+        <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        {% include 'accounts/terms.html' %}
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock %}

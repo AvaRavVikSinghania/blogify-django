@@ -1,0 +1,311 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Medium - Human Stories & Ideas</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'GT Planar', Georgia, serif;
+            background-color: #dde5deeb;
+            margin: 0;
+            min-height: 100vh;
+        }
+        
+        .navbar {
+            background-color: rgba(212, 223, 217, 1);
+            border-bottom: 1px solid rgba(41, 41, 41, 0.1);
+            padding: 20px 0;
+        }
+        
+        .navbar-brand {
+            font-size: 32px;
+            font-weight: 400;
+            color: #292929 !important;
+            text-decoration: none;
+        }
+        
+        .navbar-nav .nav-link {
+            color: #292929 !important;
+            font-size: 14px;
+            margin: 0 15px;
+            text-decoration: none;
+        }
+        
+        .navbar-nav .nav-link:hover {
+            color: #000 !important;
+        }
+        
+        .btn-get-started {
+            background-color: #191919;
+            color: white;
+            border: none;
+            padding: 8px 20px;
+            border-radius: 50px;
+            font-size: 14px;
+            text-decoration: none;
+            transition: background-color 0.2s;
+        }
+        
+        .btn-get-started:hover {
+            background-color: #000;
+            color: white;
+        }
+        
+        .hero-section {
+            padding: 100px 0;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .hero-content h1 {
+            font-size: 106px;
+            font-weight: 400;
+            line-height: 1.05;
+            color: #292929;
+            margin-bottom: 30px;
+            letter-spacing: -0.02em;
+        }
+        
+        .hero-content p {
+            font-size: 24px;
+            color: #292929;
+            margin-bottom: 50px;
+            font-weight: 400;
+        }
+        
+        .btn-start-reading {
+            background-color: #191919;
+            color: white;
+            border: none;
+            padding: 12px 48px;
+            border-radius: 50px;
+            font-size: 20px;
+            text-decoration: none;
+            display: inline-block;
+            transition: background-color 0.2s;
+        }
+        
+        .btn-start-reading:hover {
+            background-color: #000;
+            color: white;
+        }
+        
+        .decorative-elements {
+            position: absolute;
+            right: 0;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 50%;
+            height: 100%;
+            overflow: hidden;
+        }
+        
+        .green-flower {
+            position: absolute;
+            right: 200px;
+            top: 100px;
+            width: 200px;
+            height: 200px;
+            background: #4CAF50;
+            border-radius: 50%;
+            opacity: 0.9;
+        }
+        
+        .green-flower::before,
+        .green-flower::after {
+            content: '';
+            position: absolute;
+            width: 200px;
+            height: 200px;
+            background: #4CAF50;
+            border-radius: 50%;
+        }
+        
+        .green-flower::before {
+            left: -60px;
+            top: -30px;
+        }
+        
+        .green-flower::after {
+            left: 60px;
+            top: -30px;
+        }
+        
+        .geometric-shape {
+            position: absolute;
+            right: 100px;
+            top: 200px;
+            width: 0;
+            height: 0;
+            border-left: 100px solid transparent;
+            border-right: 100px solid transparent;
+            border-bottom: 150px solid #E8E8E8;
+            transform: rotate(15deg);
+        }
+        
+        .green-rectangle {
+            position: absolute;
+            right: 50px;
+            bottom: 100px;
+            width: 300px;
+            height: 200px;
+            background: #4CAF50;
+            border-radius: 10px;
+            transform: rotate(-5deg);
+        }
+        
+        .white-shape {
+            position: absolute;
+            right: 80px;
+            bottom: 120px;
+            width: 150px;
+            height: 100px;
+            background: white;
+            border-radius: 50px;
+            transform: rotate(10deg);
+        }
+        
+        .stars {
+            position: absolute;
+            right: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+        }
+        
+        .star {
+            position: absolute;
+            color: #191919;
+            font-size: 20px;
+        }
+        
+        .star:nth-child(1) { right: 150px; top: 300px; }
+        .star:nth-child(2) { right: 250px; top: 400px; }
+        .star:nth-child(3) { right: 180px; top: 500px; }
+        .star:nth-child(4) { right: 120px; top: 450px; }
+        .star:nth-child(5) { right: 300px; top: 320px; }
+        .star:nth-child(6) { right: 80px; top: 380px; }
+        
+        .footer {
+            background-color: #FFC017;
+            padding: 40px 0;
+            border-top: 1px solid rgba(41, 41, 41, 0.1);
+            margin-top: 100px;
+        }
+        
+        .footer-links a {
+            color: #6B7280;
+            text-decoration: none;
+            font-size: 14px;
+            margin: 0 15px;
+        }
+        
+        .footer-links a:hover {
+            color: #292929;
+        }
+        
+        @media (max-width: 768px) {
+            .hero-content h1 {
+                font-size: 64px;
+            }
+            
+            .hero-content p {
+                font-size: 20px;
+            }
+            
+            .decorative-elements {
+                display: none;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg">
+        <div class="container">
+            <a class="navbar-brand" href="#">Medium</a>
+            
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Our story</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Membership</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Write</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{% url 'login' %}">Sign in</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="btn-get-started" href="#">Get started</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero-section">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-7">
+                    <div class="hero-content">
+                        <h1>Human<br>stories & ideas</h1>
+                        <p>A place to read, write, and deepen your understanding</p>
+                        <a href="#" class="btn-start-reading">Start reading</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Decorative Elements -->
+        <div class="decorative-elements">
+            <div class="green-flower"></div>
+            <div class="geometric-shape"></div>
+            <div class="green-rectangle"></div>
+            <div class="white-shape"></div>
+            <div class="stars">
+                <div class="star">✦</div>
+                <div class="star">✦</div>
+                <div class="star">✦</div>
+                <div class="star">✦</div>
+                <div class="star">✦</div>
+                <div class="star">✦</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="row">
+                <div class="col-12">
+                    <div class="footer-links text-center">
+                        <a href="#">Help</a>
+                        <a href="#">Status</a>
+                        <a href="#">About</a>
+                        <a href="#">Careers</a>
+                        <a href="#">Press</a>
+                        <a href="#">Blog</a>
+                        <a href="#">Privacy</a>
+                        <a href="#">Rules</a>
+                        <a href="#">Terms</a>
+                        <a href="#">Text to speech</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
